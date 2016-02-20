@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: chaos-monkey
+spec:
+  replicas: 1
+  selector:
+    app: chaos-monkey
+  template:
+    metadata:
+      name: chaos-monkey
+      labels:
+        app: chaos-monkey
+    spec:
+      containers:
+        - name: chaos-monkey
+          image: fabric8/chaos-monkey:2.2.110
+          ports:
+            - containerPort: 8778
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "1"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+          env:
+            - name: KUBERNETES_MASTER
+              value: "http://127.0.0.1:8080"
+            - name: KUBERNETES_NAMESPACE
+              value: "default"
+            - name: "CHAOS_MONKEY_INCLUDES"
+              value: "zk*,zk1*"
+            - name: "CHAOS_MONKEY_EXCLUDES"
+              value: "zk2*"
+            - name: "CHAOS_MONKEY_KILL_FREQUENCY_SECONDS"
+              value: "30"
