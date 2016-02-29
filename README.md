@@ -28,6 +28,9 @@ This  kills pods to help check your environment can withstand failures by using 
   
     ```txt
     docker logs chaosmonkey
+    02:35:33 INFO  #fabric8_default:34 - Chaos Monkey killed pod zk3-controller-uysjg in namespace default
+	02:35:33 INFO  #fabric8_default:34 - http://i.giphy.com/OYJ2kbvdTPW6I.gif
+    
     ```
 
 
@@ -36,9 +39,23 @@ This  kills pods to help check your environment can withstand failures by using 
 
    ```
    $ kubectl create -f kubernetes/chaos-monkey-rc.yaml
+   
    ```
    
   - Check the log of the container
+  
+  ```
+  docker 
+  
+  
+**Notice**
+
+You can ignore the error:
+```
+Reason: java.lang.IllegalArgumentException: No kubernetes service could be found for name: hubot in namespace: default
+```
+
+It's because it's run as a standalone application, and we don't have 'hubot' which is the chatting room for fabric8 
    
    
   
