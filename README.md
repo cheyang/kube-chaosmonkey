@@ -16,7 +16,7 @@ This  kills pods to help check your environment can withstand failures by using 
 - Start chaos monkey docker container 
     ```txt
     docker run -d \
-    --name chaosmonkey \
+    --name chaos-monkey \
  	-e KUBERNETES_MASTER=http://127.0.0.1:8080 \
  	-e KUBERNETES_NAMESPACE=default \
 	-e CHAOS_MONKEY_INCLUDES=zookeeper*,kafka* \

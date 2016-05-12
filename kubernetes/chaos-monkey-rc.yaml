@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: chaos-monkey
-          image: fabric8/chaos-monkey:2.2.110
+          image: fabric8/chaos-monkey:2.2.115
           ports:
             - containerPort: 8778
           resources:
