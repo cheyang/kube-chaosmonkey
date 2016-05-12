@@ -50,9 +50,6 @@ You can ignore the error the following [error](https://github.com/fabric8io/fabr
 ```
 Reason: java.lang.IllegalArgumentException: No kubernetes service could be found for name: hubot in namespace: default
 ```
-
-It's because it's run as a standalone application, and we don't have 'hubot' which is the chatting room for fabric8 
-   
    
   
 
